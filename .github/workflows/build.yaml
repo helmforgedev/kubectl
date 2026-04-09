@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Run every Sunday at 02:00 UTC to check for new kubectl releases
+    - cron: '0 2 * * 0'
 
 permissions:
   contents: read
