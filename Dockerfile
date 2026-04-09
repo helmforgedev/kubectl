@@ -22,9 +22,12 @@ RUN addgroup -g 1001 kubectl && \
 FROM base AS download
 
 ARG TARGETARCH
+ARG KUBECTL_VERSION
 
-# Download latest stable kubectl
-RUN KUBECTL_VERSION=$(curl -L -s https://dl.k8s.io/release/stable.txt) && \
+# Download kubectl (use provided version or fetch latest stable)
+RUN if [ -z "$KUBECTL_VERSION" ]; then \
+        KUBECTL_VERSION=$(curl -L -s https://dl.k8s.io/release/stable.txt); \
+    fi && \
     echo "Downloading kubectl ${KUBECTL_VERSION} for ${TARGETARCH}" && \
     curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/${TARGETARCH}/kubectl" && \
     curl -LO "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/${TARGETARCH}/kubectl.sha256" && \
