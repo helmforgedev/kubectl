@@ -1,0 +1,17 @@
+# SBOM artifacts
+sbom.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test outputs
+test-results/
+coverage/
