@@ -45,7 +45,7 @@ LABEL org.opencontainers.image.title="kubectl" \
       org.opencontainers.image.description="Minimal kubectl image for Kubernetes operations" \
       org.opencontainers.image.vendor="HelmForge" \
       org.opencontainers.image.authors="HelmForge Team" \
-      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.licenses="Apache-2.0" \
       org.opencontainers.image.source="https://github.com/helmforgedev/kubectl"
 
 # Copy kubectl binary
